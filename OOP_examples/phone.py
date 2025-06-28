@@ -1,5 +1,5 @@
-import json
 from item import Item  # Assuming Item class is defined in item.py
+
 
 class Phone(Item):
     """A class representing a phone item, inheriting from Item and using super() functionality."""
@@ -10,8 +10,7 @@ class Phone(Item):
         # self.type = 'Phone'
         assert broken_phone >= 0, f"Broken phones {broken_phone} cannot be negative"
         self.broken_phone = broken_phone
-        Phone.all.append(self) # don't needed due to super() functionality
-        
+        Phone.all.append(self)  # don't needed due to super() functionality
 
 
 # Export all items to a JSON file and print the JSON content
@@ -25,4 +24,3 @@ class Phone(Item):
 phone1 = Phone("iPhone", 999, 10, 2)
 phone2 = Phone("Samsung Galaxy", 899, 5, 1)
 print(phone1.calculate_total_price())
-

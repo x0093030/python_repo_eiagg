@@ -1,8 +1,11 @@
+import json
+
+
 class Item:
     """A class representing an item with a name, price, and quantity."""
     pay_rate = 0.8  # Class variable for discount rate
     all = []  # Class variable to store all instances
-    
+
     def __init__(self, name: str, price: float, quantity: int = 0):
         """        Initializes an Item instance with a name, price, and quantity.
         Args:
@@ -13,26 +16,26 @@ class Item:
         # Validate inputs
         assert price >= 0, f"Price {price} cannot be negative"
         assert quantity >= 0, f"Quantity {quantity} cannot be negative"
-        
+
         # Instance variables
         self.name = name
         self.price = price
         self.quantity = quantity
-        
+
         # Append the instance to the class variable 'all'
         Item.all.append(self)
 
     @property
     def price(self):
         """Returns the price of the item."""
-        return self.__price # private variable
-    
+        return self.__price  # private variable
+
     @price.setter
     def price(self, new_price: float):
         """Sets the price of the item, ensuring it is not negative."""
         assert new_price >= 0, f"Price {new_price} cannot be negative"
         self.__price = new_price
-    
+
     def __str__(self):
         """Returns a string representation of the Item instance when using print(). aka magic method"""
         return f"Item(name={self.name}, price={self.price}, quantity={self.quantity})"
@@ -47,11 +50,11 @@ class Item:
         assert 0 <= discount <= 1, "Discount must be between 0 and 1"
         self.price -= self.price * discount
         return self.price
-    
+
     def calculate_total_price(self):
         """Calculates the total price of the item based on its quantity."""
         return self.price * self.quantity
-    
+
     @classmethod
     def instantiate_from_json(cls):
         """Instantiates Item instances from a JSON file."""
@@ -66,7 +69,7 @@ class Item:
             quantity = item_data.get('quantity', 0)
             cls(name, price, quantity)
         return cls.all
-    
+
     @classmethod
     def export_items_to_json(cls):
         """Exports all Item instances to a JSON file."""
@@ -82,6 +85,7 @@ class Item:
         with open(filename, 'w', encoding='utf-8') as f:
             json.dump(items_list, f, ensure_ascii=False, indent=4)
         return items_list
+
 
 item1 = Item("Phone", 100, 5)
 item2 = Item("Laptop", 1000, 3)
