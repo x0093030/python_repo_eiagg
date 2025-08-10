@@ -27,7 +27,7 @@ class Test(unittest.TestCase):
         element.send_keys("selenium")
         element.send_keys(Keys.RETURN)
         time.sleep(5)
-        #input("Press any key + ENTER ")
+        input("Press any key + ENTER ")
         
         assert "Element doesn't found!" not in driver.page_source
     
