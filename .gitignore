@@ -1,0 +1,26 @@
+# Ignore Python cache and environment files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.txt
+.env/
+.venv/
+ENV/
+venv/
+v_selenium/
+v_robot/
+../.gitignore
+../OOP_examples/.gitignore
+# Ignore VS Code settings
+.vscode/
+
+# Ignore SonarQube analysis files
+.sonarqube/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore JSON data files
+items.json
