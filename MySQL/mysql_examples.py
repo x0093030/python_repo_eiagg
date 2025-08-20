@@ -76,7 +76,6 @@ def close_session(cursor):
     conexion.close()
 
 if __name__ == '__main__':
-
     cursor = connect_to_database()
     create_table(cursor)
     insert_data(cursor)
